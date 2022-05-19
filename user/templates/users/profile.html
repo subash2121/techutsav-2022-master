@@ -1,0 +1,222 @@
+{% extends "techutsav/base_data.html" %}
+{% load crispy_forms_tags %}
+{% block cont %}
+<div class="content-section">
+  <div class="row">
+    <div class="col-12">
+      <br>
+    </div>
+    <div class="col-12">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+          href="#view-profile" role="tab" aria-controls="home" style="text-align: center; font-size: 3rem; font-weight: 700;">YOUR PROFILE</a>
+        <!-- <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#edit-profile"
+          role="tab" aria-controls="profile">Edit Profile</a> -->
+      </div>
+    </div>
+    <div class="col-12">
+      <br>
+    <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data={{qr}}" alt="" title="{{ref}}" width="150" height="150" style="display: block; margin-left:auto; margin-right: auto;"/>
+
+    </div>
+
+    <div class="col-12">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="view-profile" role="tabpanel" aria-labelledby="list-home-list">
+          <div class="card-body">
+            <hr>
+            <h5 class="account-heading">Hello <b style="font-weight: 700;">{{ user.username }} !!</b></h5><br>
+            <!-- <h4 class="card-title">Profile Info</h4> -->
+            <legend class="border-bottom mb-4"></legend>
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">UserName</h5>
+                  </th>
+                  <td>
+                    <h6 class="card-text">{{ user.username }}</h6>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Email</h5>
+                  </th>
+                  <td>
+                    <h6 class="card-text">{{ user.email }}</h6>
+                  </td>
+                </tr>
+                {% for x in extra%}
+
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Roll No</h5>
+                  </th>
+                  <td>
+                    <h6 class="card-text">{{ x.rollno }}</h6>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Department</h5>
+                  </th>
+                  <td>
+                    <h6 class="card-text">{{ x.department }}</h6>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Year</h5>
+                  </th>
+                  <td>
+                    <h6 class="card-text">{{ x.year }}</h6>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">College</h5>
+                  </th>
+                  <td>
+                    <h6 class="card-text">{{ x.college }}</h6>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Phno</h5>
+                  </th>
+                  <td>
+                    <h6 class="card-text">{{ x.phno }}</h6>
+                  </td>
+                </tr>
+                {% endfor %}
+
+                {% if payment  %}
+                {% for x in payment%}
+
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Payment ID</h5>
+                  </th>
+                  <td>
+                    <!-- {% if x  %}
+                    <h6 class="card-text">{{ x.txnid }}</h6>
+                    {% else %}
+                    <h6 class="card-text">Kindly do the payement.</h6>
+                    {% endif %} -->
+                    <h6 class="card-text">{{ x.txnid }}</h6>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Payment Date</h5>
+                  </th>
+                  <td>
+                    <!-- {% if x  %}
+                    <h6 class="card-text">{{ x.tnxdate }}</h6>
+                    {% else %}
+                    <h6 class="card-text">Kindly do the payement.</h6>
+                    {% endif %} -->
+                    <h6 class="card-text">{{ x.tnxdate }}</h6>
+
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Paid Amount</h5>
+                  </th>
+                  <td>
+                    <!-- {% if x  %}
+                    <h6 class="card-text">{{ x.base_amount }}</h6>
+                    {% else %}
+                    <h6 class="card-text">Kindly do the payement.</h6>
+                    {% endif %} -->
+                    <h6 class="card-text">{{ x.base_amount }}</h6>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Registed Department</h5>
+                  </th>
+                  <td>
+                    <!-- {% if x  %}
+                    <h6 class="card-text">{{ x.org_dept }}</h6>
+                    {% else %}
+                    <h6 class="card-text">Kindly do the payement.</h6>
+                    {% endif %} -->
+                    <h6 class="card-text">{{ x.org_dept }}</h6>
+                  </td>
+                  
+                </tr>
+                {% endfor %}
+
+                {% else %}
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Payment ID</h5>
+                  </th>
+                  <td>
+                    {% if payment  %}
+                    <h6 class="card-text">{{ payment.txnid }}</h6>
+                    {% else %}
+                    <h6 class="card-text">Kindly do the payment.</h6>
+                    {% endif %}
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Payment Date</h5>
+                  </th>
+                  <td>
+                    {% if payment  %}
+                    <h6 class="card-text">{{ payment.tnxdate }}</h6>
+                    {% else %}
+                    <h6 class="card-text">Kindly do the payment.</h6>
+                    {% endif %}
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Paid Amount</h5>
+                  </th>
+                  <td>
+                    {% if payment  %}
+                    <h6 class="card-text">{{ payment.base_amount }}</h6>
+                    {% else %}
+                    <h6 class="card-text">Kindly do the payment.</h6>
+                    {% endif %}
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row">
+                    <h5 class="card-text">Registed Department</h5>
+                  </th>
+                  <td>
+                    {% if payment  %}
+                    <h6 class="card-text">{{ payment.org_dept }}</h6>
+                    {% else %}
+                    <h6 class="card-text">Kindly do the payment.</h6>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endif %}
+              </tbody>
+            </table>
+            </tbody>
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br>
+
+  </div>
+</div><br><br><br><br><br>
+{% endblock cont %}

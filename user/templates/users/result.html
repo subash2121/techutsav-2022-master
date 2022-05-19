@@ -1,0 +1,38 @@
+{% extends "techutsav/base_data.html" %}
+
+{% block content %}
+
+{% if payment %}
+{%if status%}
+<h1 style="text-align: center;">
+    Payment Done
+</h1>
+<h3 style="text-align: center;">(Kit Can Be Provided)</h3>
+<p style="text-align: center; font-size:3rem ">Participant Name: <span>{{extra.user_name.username}}</span></p>
+<lottie-player src="https://assets1.lottiefiles.com/private_files/lf30_vdiqfuwi.json"  background="transparent"  speed="1"  style="width: 30%; height: auto;display: block; margin-left: auto; margin-right: auto; "  loop autoplay ></lottie-player>
+
+{%else%}
+<h1 style="text-align: center;">
+    Payment Done
+</h1>
+<h3 style="text-align: center; color: red">(Kit Provided Already)</h3>
+<p style="text-align: center; font-size:3rem ">Participant Name: <span>{{extra.user_name.username}}</span></p>
+<lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_iq8wpj9j.json"  background="transparent"  speed="1"  style="width: 30%; height: auto;display: block; margin-left: auto; margin-right: auto; "  loop autoplay></lottie-player>
+<h1></h1>
+{%endif%}
+{%else%}
+<h1 style="text-align: center;">
+    Payment Not Done
+</h1>
+<p style="text-align: center; font-size:3rem ">Participant User Name: <span>{{extra.user_name.username}}</span></p>
+<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_pqpmxbxp.json"  background="transparent"  speed="1"  style="width: 30%; height: auto;display: block; margin-left: auto; margin-right: auto; "  loop autoplay></lottie-player>
+
+
+{%endif%}
+
+<a class="btn btn-success" href="/verify/" role="button" style="display: block; margin-left: auto; margin-right: auto; font-size: 3rem; " >Next</a>
+
+
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+{%endblock content%}

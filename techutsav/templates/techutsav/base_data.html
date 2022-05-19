@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="utf-8">
+    <title>techutsav</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="icon" href="/static/img/LOGOo.png" type="image/png">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
+
+    <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"> -->
+
+    <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/static/lib/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/static/js/dep_main.js"></script>
+    <link rel="stylesheet" href="/static/css/dep_skeleton.min.css">
+    <link rel="stylesheet" href="/static/css/dep_animate.min.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <!-- <link rel="stylesheet" href="/static/css/dep_style.css"> -->
+    <style>
+        .card-img-top {
+    width: 100%;
+    height: 18vh;
+    object-fit: cover;
+}
+        #header.header-scrolled,
+#header.header-fixed {
+    background: #830000;
+    height: 70px;
+    padding: 15px 0;
+    transition: all 0.5s;
+}
+#header #logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 80px;
+}
+#header #logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 80px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        
+    </div>
+    <header id="header" class="header-dept">
+        <div class="container">
+            
+            <div id="logo" class="pull-left">
+                <!-- <a href="{% url 'index' %}" class="scrollto"><img src="/static/img/LOGO.png" alt="" title="" width="50"
+                        height="150"></a> -->
+                        <a href="{% url 'index' %}" class="scrollto"><img src="/static/img/LOGOo.png" alt="" title="" width="65" height="60" style="margin-top: -8px;  "></a>
+
+
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="/depts/">Departments</a></li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Departments
+                        </a>
+                        <div class=" nav-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/cse/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">CSE</h6>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/civil/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">CIVIL</h6>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/mech/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">MECHANICAL</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/eee/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">EEE</h6>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/ece/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">ECE</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/it/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">IT</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/mechatronics/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold; ">MECHATRONICS</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/mca/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">MCA</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/arch/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">ARCHITECTURE</h6>
+                            </a>
+
+                        </div>
+                    </li> -->
+
+                    {% if request.user.is_staff %}
+                    <li><a href="/payment/report">Paid Report</a></li>
+                    <li><a href="/user/report">Register Report</a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main id="main">
+
+
+        <style>
+            #error_1_id_password2 , #error_1_id_password1, #error_1_id_username {
+                color: red;
+                font-weight: bolder;
+            }
+            
+        </style>
+        <section role="main" class="container" style="background-color: white;padding-top: 100px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="col-md-12">
+                        {% block content %}{% endblock %}
+                    </div>
+                    <div class="col-md-12">
+                        {% block cont %}{% endblock %}
+                    </div>
+
+                </div>
+        </section>
+
+
+
+    </main>
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                <!-- Made by TCE <strong> CSE Department</strong> -->
+            </div>
+        </div>
+    </footer><!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JavaScript /static/Libraries -->
+    <script src="/static/lib/jquery/jquery.min.js"></script>
+    <script src="/static/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/lib/easing/easing.min.js"></script>
+    <script src="/static/lib/superfish/hoverIntent.js"></script>
+    <script src="/static/lib/superfish/superfish.min.js"></script>
+    <script src="/static/lib/wow/wow.min.js"></script>
+    <script src="/static/lib/venobox/venobox.min.js"></script>
+    <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Contact Form JavaScript File -->
+    <!-- <script src="contactform/contactform.js"></script> -->
+
+    <!-- Template Main Javascript File -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/dep_main.js"></script>
+    <script src="https://use.fontawesome.com/7c0b3ec4f2.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+</body>
+
+</html>

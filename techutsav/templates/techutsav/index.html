@@ -1,0 +1,818 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>TECHUTSAV - 2022</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+    rel="stylesheet">
+  <link rel="icon" href="/static/img/LOGOo.png" type="image/png">
+  <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="/static/lib/venobox/venobox.css" rel="stylesheet">
+  <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Macondo&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Macondo&family=Skranji&family=Smokum&display=swap" rel="stylesheet">
+  <style>
+    #mobile-nav {
+
+    background: #830000;
+
+}
+    @media (max-width: 991px){
+    #header {
+    background: #830000;
+    height: 70px;
+    padding: 15px 0;
+    transition: all 0.5s;}
+  }
+#header.header-scrolled,
+#header.header-fixed {
+    background: #830000;
+    height: 70px;
+    padding: 15px 0;
+    transition: all 0.5s;
+}
+#timer {
+  width: 50%; }
+  @media (max-width: 991.98px) {
+    #timer {
+      width: 100%; } }
+  #timer .time {
+    width: 25%;
+    font-size: 2REM;
+    font-weight: 200;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    color: #3b275a; 
+    font-weight: 800;
+  }
+    #timer .time:first-child {
+      border-left: transparent; }
+    #timer .time span {
+      font-size: 1rem;
+      display: block;
+      color: #3b275a; }
+
+
+
+    .center {
+      text-align: center;
+      transform: translateY(-50);
+    }
+
+    .center.h1 {
+      text-align: center;
+      color: black;
+      text-transform: uppercase;
+    }
+
+    .center h1 span {
+      font-size: 3em;
+      line-height: .8em;
+    }
+
+    #clock {
+      display: flex;
+      border-radius: 25px;
+      width: auto;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      border: 2px solid #f82249;
+
+    }
+
+    #clock div {
+      position: initial;
+      /* width: 100%; */
+      padding: 20px;
+      /* margin: 0 5px; */
+      /* border: 2px solid #f82249; */
+
+    }
+    .hero-wrap {
+    width: 100%;
+    height: 100%;
+    position: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;}
+
+    body{
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat",sans-serif;
+}
+/* .middle{
+  
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+} */
+.counting-sec{
+  padding: 40px 0;
+  width: 100%;
+  background: rgb(42,83,197);
+background: linear-gradient(90deg, rgba(42,83,197,1) 0%, rgba(225,151,186,1) 100%);
+}
+/* .inner-width{
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+} */
+.row{
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+}
+.col-md-3{
+  /* flex: 1;
+  text-align: center;
+  padding: 20px; */
+  color: black;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.col-m i{
+  font-size: 40px;
+  color: black;
+  font-weight: 700;
+}
+.num{
+  font-size: 40px;
+  margin: 20px 0;
+  -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+#header #logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 80px;
+}
+.number{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media all and (max-width: 499px) {
+    #timer {padding-left: 0 !important;}
+    #bannertce{
+      display: none !important;
+    }
+    #bannertcem{
+      display: block !important;
+    }
+    #img{
+      background-image: url(' {% static 'img/cover_mob.png' %} ') !important ;
+    }
+    /* #mover{
+      height: 88% !important;
+    } */
+    #timer .time {
+    width: 25%;
+    font-size: 1REM !important;
+    text-align: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    color: #3b275a; 
+    font-weight: 800 !important;
+  }
+  #hours{
+    padding: 0 !important;
+  }
+  #minutes{
+    padding: 0 !important;
+  }
+  #seconds{
+    padding: 0 !important;
+  }
+    
+
+}
+  </style>
+
+</head>
+
+<body>
+  <!-- <header id="header" style="color: #fefacb;">
+    
+      <img src="/static/img/tce_banner.png" alt="">
+    
+  </header> -->
+  
+  <header id="header" style="background-color: #830000;" style="top: 7rem;">
+    <div class="container" >
+
+      <div id="logo" class="pull-left">
+        <a href="{% url 'index' %}" class="scrollto" ><img src="/static/img/tce_banner.png" alt="" id="bannertce" title="" width="auto" height="60rem" style="margin-top: -8px;  margin-left: -5rem;">
+          <img src="/static/img/tce.png" alt="" id="bannertcem" title="" width="auto" height="60rem" style="margin-top: -8px; display: none;">
+        </a>
+            <!-- <a class="navbar-brand" href=" {% url 'index' %} " style="color: black;">Tech<span style="font-weight: 800;">UTSAV</span></a> -->
+      </div>
+      <!-- <p style="font-size: 1rem; font-weight:600; display:inline">Thiagarajar College of Engineering,Madurai-625015</p> -->
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="/depts/">Departments</a></li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Departments
+            </a>
+            <div class=" nav-menu dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/cse/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold;">CSE</h6>
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/civil/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold;">CIVIL</h6>
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/mech/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold;">MECHANICAL</h6>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/eee/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold;">EEE</h6>
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/ece/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold;">ECE</h6>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/it/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold;">IT</h6>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/mechatronics/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold; ">MECHATRONICS</h6>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/mca/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold;">MCA</h6>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/dept/arch/">
+                <h6 class="dept-name" style="color: black;  font-weight: bold;">ARCHITECTURE</h6>
+              </a>
+
+            </div>
+          </li> -->
+          
+          {% if request.user.is_staff %}
+          <li><a href="/payment/report">Paid Report</a></li>
+          <li><a href="/user/report">Register Report</a></li>     
+           {% endif %}
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+          {% endif %}
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- <section id="intro">
+
+
+    <div class="intro-container wow fadeIn">
+      <img src="/static/img/tce.png" alt="" title="" width="70" height="70">
+      <h1 class="mb-4 pb-0"><span>TECHUTSAV</span></h1>
+      <p class="mb-4 pb-0">THIAGARAJAR COLLEGE OF ENGINEERING</p>
+
+      <p class="mb-4 pb-0">(A Govt.Aided Autonomous Institution affiliated to Anna University)</p>
+      <p class="mb-4 pb-0">Largest Techno-Festival</p>
+      <p class="mb-4 pb-0"></strong>May 28</strong></p>
+      <p>
+        <a href="#speakers" class="about-btn scrollto">Enthralled with D(Tech)elight</a>
+        <!-- <a href="#speakers" class="about-btn scrollto">Event</a> -->
+      <!-- </p>
+      <p id="clock"></p>
+    </div>
+  </section> --> 
+
+  
+  <div class="hero-wrap js-fullheight" id="img" style="background-image: url(' {% static 'img/cover_mobile.png' %} ') " data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container" id="bg-cont" style="height: 100vh; ">
+      <div class="container" id="mover" style="height: 88%;"></div>
+      <div id="timer" class="d-flex" style="margin-left:auto;margin-right: auto; padding-left: 2rem; ">
+        <div class="time" id="days"></div>
+        <div class="time pl-4" id="hours"></div>
+        <div class="time pl-4" id="minutes"></div>
+        <div class="time pl-4" id="seconds"></div>
+      </div>
+    </div>
+
+  </div>
+  <main id="main">
+
+
+
+    
+    
+
+    <!-- <hr> -->
+ 
+    <div class="middle">
+      <div class="counting-sec">
+        
+          <div class="row" style="padding-top: 10px; padding-bottom:10px;color:whitesmoke">
+            <div class="col-md-4 center">
+              <!-- <i class="far fa-smile-wink"></i> -->
+              <img src="{% static 'img/department_icon.png' %}" height="100" width="100 " alt="" srcset="">
+              <div class="num number">10</div>
+              <p class="number">Departments</p>
+            </div>
+    
+            <div class="col-md-4 center">
+              <img src="{% static 'img/event_icon.png' %}" height="100" width="100 " alt="" srcset="">
+              <div class="num number">40</div>
+              <p class="number">Events</p>
+            </div>
+    
+            <div class="col-md-4 center">
+              <img src="{% static 'img/workshop_icon.png' %}" height="80" width="80 " alt="" srcset="">
+              <div class="num number">3</div>
+              <p class="number">Premier <br> Workshops</p>
+            </div>
+    
+            <!-- <div class="col-md-3 center">
+              <img src="{% static 'img/participant_icon.png' %}" height="80" width="80 " alt="" srcset="">
+              <div class="num">1000</div>
+              Participants
+            </div> -->
+          </div>
+        
+      </div>
+    </div>
+  
+    <div class="row" >
+      <div class="col-sm-12" >
+          <div class="mb-2 rounded" >
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-sm-4 mx-auto my-auto">
+                          <div class="box "> <img class="img-fluid" src="{% static 'img/about_tce.png' %}">
+                          </div>
+                      </div>
+                      <div class="col-sm-8 mx-auto my-auto">
+                          <br>
+                          <h4 class="fw-bold"><b>About TCE</b></h4><p style="text-align: justify !important;">
+                            Founded in 1957 by philanthropist and industrialist late Shri karumuthu Thiagarajan Chettiar, Thiagarajar College Of Engineering(TCE) is an ISO 9001:2008 certified institution afflication to Anna university and situated in Madurai,the Temple city.
+                            The college is founded by centeral & state Governments and Mangement.The courses offered in TCE are approved by the All India council for Technical Education,New Delhi.TCE was granted Autonomy in the year 1987 and the programmes have been accredited by the National Board of Accreditation(NBA).TCE offers 9 undergraduate programmes,10 postgraduate programmes and doctoral programmes in Engineering, science and Architecture
+
+                          </p>
+                          <a class="btn btn-primary" href="https://www.tce.edu/" class="card-link" style="color: 830000;" onclick="return ! window.open(this.href);">More
+                              Details</a>
+                      </div>
+                  </div>
+  
+              </div>
+          </div>
+      </div></div>
+    <script type="text/javascript">
+      $(".num").counterUp({delay:10,time:1000});
+    </script>
+    <div class="col-sm-12 bg-grey" style="background-color:#fefacb !important">
+      <div class="mb-2 bg-grey rounded">
+          <div class="card-body text-justify">
+              <div class="row">
+
+                  <div class="col-sm-8 mx-auto my-auto">
+                      <br>
+                      <h4 class="fw-bold"><b>Exciting Cash Prizes !!!</b></h4><p style="text-align: justify !important;">
+                        Register now to join fun events and win exciting cash prizes. 
+                        <br>
+                        We have food tokens, Welcome kit and other exciting prizes for you :)<br>
+
+                        Check out the exciting list of events.
+                      <br> 
+                      <br>
+                      <a class="btn btn-primary" href="/depts" class="card-link"
+                          onclick="return ! window.open(this.href);">Events List</a>
+                  </div>
+                  <div class="col-sm-4 mx-auto my-auto">
+                      <div class="box "> <img class="img-fluid" src="{% static 'img/prize.png' %}">
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+  <div class="row bg-white">
+    <div class="col-sm-12">
+        <div class="mb-2 bg-white rounded">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-4 mx-auto my-auto">
+                        <div class="box "> <img class="img-fluid" src="{% static 'img/workshop_ks.jfif' %}">
+                        </div>
+                    </div>
+                    <div class="col-sm-8 mx-auto my-auto">
+                        <br>
+                        <h4 class="fw-bold"><b>Industry Standard Workshops</b></h4><p style="text-align: justify !important;">
+                          <p>Get ready to experience workshops directly handly by top notch instructers from India.</p>
+
+                        </p>
+                        <a class="btn btn-primary" href="/workshop/" style="color: 830000;">List Of Workshops</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div></div>
+
+    <div class="col-sm-12 bg-grey" style="background-color:#fefacb !important">
+      <div class="mb-2 bg-grey rounded">
+          <div class="card-body text-justify">
+              <div class="row">
+
+                  <div class="col-sm-8 mx-auto my-auto">
+                      <br>
+                      <h4 class="fw-bold"><b>Grand Project Expo</b></h4><p style="text-align: justify !important;">
+                        Do you have exciting project ideas ?? <br>
+                        Showcase your smart and innovative projects in Engineering and Technology<br>
+                        Register your idea now to get your stall booked.
+                      <br> 
+                      <br>
+                      {% if user.is_authenticated %}
+                      <a class="btn btn-primary" href="/project/">Register Now</a>
+                      {%else%}
+                      <li><a class="btn btn-primary" href="{% url 'register' %}">Sign Up Before Registering</a></li>
+                      {%endif%}
+                  </div>
+                  <div class="col-sm-4 mx-auto my-auto">
+                      <div class="box "> <img class="img-fluid" src="{% static 'img/expo.jpg' %}">
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+    <!-- <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>EVENTS</h2>
+        </div>
+        <div class="X">
+
+
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" align="center">
+              <div class="carousel-item active">
+                <a href="http://techutsav.tce.edu/dept/cse/">
+                  <img class="h-75 d-inline-block" style="width: 50%; height: 50%;" src="/static/img/events/team 1.jpg"
+                    alt="First slide"> </a>
+                <div class="carousel-caption d-none d-md-block">
+
+
+                </div>
+              </div>
+              <div class="carousel-item">
+                <a href="http://techutsav.tce.edu/dept/eee/">
+                  <img class="h-75 d-inline-block" style="width: 50%; height: 50%;" src="/static/img/events/EEE.jpg"
+                    alt="Second slide"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+              </div>
+              <div class="carousel-item">
+                <a href="http://techutsav.tce.edu/dept/mech/">
+                  <img class="h-75 d-inline-block" style="width: 50%; height: 50%;" src="/static/img/events/MECH.jpg"
+                    alt="Second slide"></a>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+              </div>
+              <div class="carousel-item">
+                <a href="http://techutsav.tce.edu/dept/robot/">
+                  <img class="h-75 d-inline-block" style="width: 50%; height: 50%;" src="/static/img/events/robo.jpg"
+                    alt="Third slide"></a>
+                <div class="carousel-caption d-none d-md-block">
+
+
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+    </section>
+
+
+
+    <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>WORKSHOP</h2>
+        </div>
+        <div class="X">
+
+
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" align="center">
+              <div class="carousel-item active">
+                <img class="h-75 d-inline-block" style="width: 50%; height: 75%;"
+                  src="/static/img/workshop/keynote_speech.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+
+                  <p>keynote speech workshop</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="h-75 d-inline-block" style="width: 50%; height: 75%;"
+                  src="/static/img/workshop/parametric_furniture_workshop.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+
+                  <p>Parametric furniture workshop </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="h-75 d-inline-block" style="width: 50%; height: 75%;" src="/static/img/workshop/civil.jpg"
+                  alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+
+                  <p>CIVIL WORKSHOP</p>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section> -->
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>THIAGARAJAR COLLEGE OF ENGINEERING <br>THIRUPARANKUNDRAM <br> MADURAI - 625015</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Whatsapp Number</h3>
+              <p>Shanmugamanikkam S - 77085 21331</p>
+              <p>Yogeshwaran T - 73390 81110</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              
+              <p><a href="mailto:techutsavcse@gmail.com">techutsav2022@gmail.com</a></p>
+              <a href="https://instagram.com/techutsav_2k22?igshid=YmMyMTA2M2Y=" target="_blank" style="color: red; padding: 20px;"><img src="{%static 'img/insta_logo.png'%}" alt="" height="30px" style="margin-right: 20px;">Techutsav_2K22</a>
+
+            </div>
+          </div>
+
+          <div style="width: 100%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.620966978722!2d78.0793642144934!3d9.882132092932023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c58f98cfb84d%3A0x29f51efea3e84bf2!2sThiagarajar%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1652723191050!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+        </div>
+
+
+      </div>
+    </section>
+
+  </main>
+
+  <!--
+    <section class="" id="contact-section">
+        <div class="container">
+            <div>
+                <h2 class="headline-section wow jackInTheBox">CONTACT US</h2>
+                <h4 class="subline-section wow jackInTheBox" data-wow-duration="0.6s" data-wow-delay="0.3s">Get in touch
+                    with us</h4>
+                <hr>
+                <div class="contact-areas">
+
+                    <div class="contact-area wow fadeInRight" data-wow-offset="75">
+                        <h5>
+                            OUR LOCATION
+                            <i class="fa fa-map-marker"></i>
+                        </h5>
+                        <p>
+                            <i class="fa fa-phone" aria-hidden="true"></i> +91-9659872073
+                            <br>
+                            <i class="fa fa-envelope" aria-hidden="true"></i> test@gmail.com
+                        </p>
+
+                        <div style="width: 100%"><iframe width="100%" height="300"
+                                src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=thiagarajar+(Your%20Business%20Name)&ie=UTF8&t=&z=17&iwloc=B&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a
+                                    href="https://www.mapsdirections.info/en/journey-planner.htm">Map
+                                    Directions</a></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+  <footer class="wow fadeInUp" data-wow-offset="0">
+    <div class="container">
+      <div style="float:left; line-height: 40px;">
+        <a class="name" href="https://www.tce.edu/">www.tce.edu</a>
+      </div>
+      <div style="float:right">
+        <a class="socialBtn" href="">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a class="socialBtn" href="">
+          <i class="fa fa-envelope"></i>
+        </a>
+        <a class="socialBtn" href="tel:+91-9659872073">
+          <i class="fa fa-phone"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        <!-- Made by TCE <strong> CSE Department</strong> -->
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript /static/Libraries -->
+  <script src="/static/lib/jquery/jquery.min.js"></script>
+  <script src="/static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/lib/easing/easing.min.js"></script>
+  <script src="/static/lib/superfish/hoverIntent.js"></script>
+  <script src="/static/lib/superfish/superfish.min.js"></script>
+  <script src="/static/lib/wow/wow.min.js"></script>
+  <script src="/static/lib/venobox/venobox.min.js"></script>
+  <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <!-- <script src="contactform/contactform.js"></script> -->
+  <script>
+    $('.counter-count').each(function () {
+      $(this).prop('Counter', 0).animate({
+        Counter: $(this).text()
+      }, {
+        duration: 5000,
+        easing: 'swing',
+        step: function (now) {
+          $(this).text(Math.ceil(now));
+        }
+      });
+    });
+  </script>
+  <script src="static/js/countdown.js"></script>
+
+  <script type="text/JavaScript">
+$('#clock').countdown('2022/5/28', function (event) {
+  var $this = $(this).html(event.strftime(
+    ''+'<div><span>%w</span><span>WEEK</span></div>'
+    +'<div><span>%d</span><span>DAYS</span></div>'
+    +'<div><span>%H</span><span>HR</span></div>'
+    +'<div><span>%M</span><span>MIN</span></div>'
+    // +'<div><span>%S</span><span>SEC</span></div>'
+  ))
+})
+
+ if ("{{has_to_pay}}" == "True") {
+    $.confirm({
+    title: 'Alert! Registration not successful.',
+    content: 'Only, After doing the payment your registration will be confirmed. (ignore if already paid).',
+    buttons: {
+        
+        something: {
+            text: 'Later',
+            btnClass: 'btn-red',
+            keys: ['esc'],  
+        },
+        somethingElse: {
+            text: 'Pay Now',
+            btnClass: 'btn-green',
+            keys: ['enter'],
+            action: function(){
+              window.location.href='/payment/home/1/'
+            }
+        },
+    }
+});
+    }
+    (function($) {
+
+"use strict";
+function makeTimer() {
+
+var endTime = new Date("28 May 2022 00:00:00 GMT+05:30");			
+endTime = (Date.parse(endTime) / 1000);
+
+var now = new Date();
+now = (Date.parse(now) / 1000);
+
+var timeLeft = endTime - now;
+
+var days = Math.floor(timeLeft / 86400); 
+var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+if (hours < "10") { hours = "0" + hours; }
+if (minutes < "10") { minutes = "0" + minutes; }
+if (seconds < "10") { seconds = "0" + seconds; }
+
+$("#days").html(days + "<span>Days</span>");
+$("#hours").html(hours + "<span>Hours</span>");
+$("#minutes").html(minutes + "<span>Minutes</span>");
+$("#seconds").html(seconds + "<span>Seconds</span>");		
+
+}
+
+setInterval(function() { makeTimer(); }, 1000);
+
+
+
+})(jQuery);
+</script>
+
+  <!-- Template Main Javascript File -->
+  <script src="static/js/main.js"></script>
+</body>
+
+</html>

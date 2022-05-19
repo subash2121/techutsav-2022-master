@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>techutsav</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
+
+    <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="icon" href="/static/img/LOGOo.png" type="image/png">
+
+    <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/static/lib/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/static/js/dep_main.js"></script>
+    <link rel="stylesheet" href="/static/css/dep_skeleton.min.css">
+    <link rel="stylesheet" href="/static/css/dep_animate.min.css">
+    <link rel="stylesheet" href="/static/css/dep_style.css">
+    <style>
+        #header.header-scrolled,
+#header.header-fixed {
+    background: #830000;
+    height: 70px;
+    padding: 15px 0;
+    transition: all 0.5s;
+}
+#header #logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 80px;
+}
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="header-dept">
+        <div class="container">
+
+            <div id="logo" class="pull-left">
+                <!-- <a href="{% url 'index' %}" class="scrollto"><img src="/static/img/LOGO.png" alt="" title="" width="50"
+                        height="150"></a> -->
+                        <a href="{% url 'index' %}" class="scrollto"><img src="/static/img/LOGOo.png" alt="" title="" width="65" height="60" style="margin-top: -8px;  "></a>
+
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class=""><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="/depts/">Departments</a></li>
+
+                    {% if request.user.is_staff %}
+                    <li><a href="/payment/report">Dashboard</a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+    <main id="main">
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                <!-- Made by TCE <strong> CSE Department</strong> -->
+            </div>
+        </div>
+    </footer><!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JavaScript /static/Libraries -->
+    <script src="/static/lib/jquery/jquery.min.js"></script>
+    <script src="/static/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/lib/easing/easing.min.js"></script>
+    <script src="/static/lib/superfish/hoverIntent.js"></script>
+    <script src="/static/lib/superfish/superfish.min.js"></script>
+    <script src="/static/lib/wow/wow.min.js"></script>
+    <script src="/static/lib/venobox/venobox.min.js"></script>
+    <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Contact Form JavaScript File -->
+    <!-- <script src="contactform/contactform.js"></script> -->
+
+    <!-- Template Main Javascript File -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/dep_main.js"></script>
+    <script src="https://use.fontawesome.com/7c0b3ec4f2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{% extends "techutsav/base_data.html" %}
+{% load static %}
+{% block content %}
+
+    <form method="post" id="qr_form">
+        {% csrf_token %}
+        <input type="text" name="qr" id="qr" hidden value="hi">
+    </form>
+    <div id="qr-reader" style="width: auto"></div>
+    
+    <script>
+        function onScanSuccess(decodedText, decodedResult) {
+            document.getElementById("qr").setAttribute('value',decodedText);
+            document.getElementById("qr_form").submit();
+                 
+}
+var html5QrcodeScanner = new Html5QrcodeScanner(
+  "qr-reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess);
+    </script>
+    <br><br><br><br>
+{% endblock content %}

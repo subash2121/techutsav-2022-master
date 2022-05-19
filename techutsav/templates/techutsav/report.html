@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TECHUTSAV - Reports</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+
+
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+        rel="stylesheet">
+    <link rel="icon" href="/static/img/LOGO.png" type="image/png">
+    <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/static/lib/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <style>
+        #header.header-scrolled,
+#header.header-fixed {
+    background: #830000;
+    height: 70px;
+    padding: 15px 0;
+    transition: all 0.5s;
+}
+#header #logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 80px;
+}
+    </style>
+
+</head>
+
+<body>
+
+
+    <header id="header" class="header-scrolled">
+        <div class="container">
+
+            <div id="logo" class="pull-left">
+                <a href="{% url 'index' %}" class="scrollto"><img src="/static/img/LOGOo.png" alt="" title="" width="65" height="60" style="margin-top: -8px;  "></a>
+
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="{% url 'index' %}">Home</a></li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Departments
+                        </a>
+                        <div class=" nav-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/cse/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">CSE</h6>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/civil/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">CIVIL</h6>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/mech/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">MECHANICAL</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/eee/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">EEE</h6>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/ece/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">ECE</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/it/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">IT</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/mechatronics/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold; ">MECHATRONICS</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/mca/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">MCA</h6>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/dept/arch/">
+                                <h6 class="dept-name" style="color: black;  font-weight: bold;">ARCHITECTURE</h6>
+                            </a>
+
+                        </div>
+                    </li> -->
+                    <li><a href="/depts/">Departments</a></li>
+                    {% if request.user.is_staff %}
+                    <li><a href="/payment/report">Paid Report</a></li>
+                    <li><a href="/user/report">Register Report</a></li>
+                     {% endif %}
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main style="padding-top: 100px;">
+        <h1 style="text-align: center;">{{report}} Data</h1>
+        <div id="grid"></div>
+
+
+    </main>
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JavaScript /static/Libraries -->
+    <script src="/static/lib/jquery/jquery.min.js"></script>
+    <script src="/static/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/lib/easing/easing.min.js"></script>
+    <script src="/static/lib/superfish/hoverIntent.js"></script>
+    <script src="/static/lib/superfish/superfish.min.js"></script>
+    <script src="/static/lib/wow/wow.min.js"></script>
+    <script src="/static/lib/venobox/venobox.min.js"></script>
+    <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+
+    <script type="text/javascript">
+
+
+        $(function () {
+
+            $("#grid").jsGrid({
+                width: "100%",
+
+                controller: {
+                    loadData: function (filter) {
+                        return $.ajax({
+                            type: "GET",
+                            url: "{{url}}",
+                            data: filter
+                        });
+                        console.log(data);
+                    }
+                },
+                // controller: db,
+                // filtering: true,
+                // editing: true,
+                sorting: true,
+                autoload: true,
+                
+
+       
+                fields: [
+                    { name: "no", type: "text", width: 3 },
+                    { name: "name", type: "text", width: 30 },
+                    { name: "department", type: "text", width: 20 },
+                    { name: "year", type: "text", width: 20 },
+                    { name: "college", type: "text", width: 30 },
+                    { name: "{{data1}}", type: "text", width: 20 },
+                    { name: "email", type: "text", width: 40 },
+                    { name: "{{data2}}", type: "text", width: 8 },
+                    { name: "reg_for", type: "text", width: 10 },
+                    { name: "base_amount", type: "number", width: 5 },
+                    { name: "txnid", type: "text", width: 25 },
+                    { name: "tnxdate", type: "date", width: 20 },
+                ]
+            })
+        })
+
+
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+
+
+</body>
+
+</html>

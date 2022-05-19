@@ -1,0 +1,86 @@
+{% extends 'techutsav/base_data.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">PAYMENT INSTRUCTION</h4>
+            <img class="card-img-top" src="/static/payscreen.jpg" alt="Card image cap" style="height: 100% !important;">
+            <p class="card-text">Please follow the given instruction during payment process:</p>
+            <ul>
+                <li>Read the terms and conditions carefully of the Bank and click the checkbox to proceed to payment.
+                </li>
+                <li><strong>Individual Registrations </strong></li>
+                <li><strong>Don't refresh</strong> the payment gateway page under any circumstances.</li>
+                <li>Click <b>Pay</b> to proceed.</li>
+                <li>You will be redirected to the payment gateway and <strong>college code will copied to your
+                        clipboard - "THIAGARAJAR COLLEGE OF ENGINEERING TECHUTSAV 2022".</strong></li>
+                <li>Paste the text in the (make payment -> Enter name of the Institution you wish to pay) field
+                    <strong>or</strong> Enter <strong> THIAGARAJAR COLLEGE OF ENGINEERING TECHUTSAV 2022 </strong> in
+                    the search
+                    bar.
+                </li>
+                <li>Select <b>GO</b> to proceed.</li>
+                <li>Enter the following details to payment</li>
+                <ol>
+                    <li>Name</li>
+                    <li>Mobile Number</li>
+                    <li>Email</li>
+                    <li>Department for which your are registring (organising Department)</li>
+                    <li>And Other details</li>
+
+                </ol>
+                <li>You will be displayed only the cost of the events and workshops (selecting either 1. Events or 2.
+                    Workshops or 3. Events and workshops will be asked in the nextpage)</li>
+                <li>Enter the Captcha and Select <b> show details </b> to continue.</li>
+                <li>You will recieve an <strong>OTP</strong>, enter it and proceed to payment. </li>
+                <li> Select either <b> 1. Events or 2. Workshops or 3. Events and workshops </b></li>
+                <li> Click <b>Pay </b> to proceed </li>
+                <li> Select your <b>Payment Category</b> of your Choice. </li>
+                <li> <a href="/static/payment.pdf" target="_blank"> For More instruction regarding payments click here</a>  </li>
+            </ul>
+            <form method="POST" id="form1" form target="_blank">
+                <span>NOTE: Once a payment is successfully done, payment status will be updated in 1 working day.</span>
+                <br>
+                <span>For any queries related to payment contact us via <a
+                        href="mailto:techutsavcse@gmail.com">techutsavcse@gmail.com</a> </span>
+                <br><br>
+                <input type="checkbox" id="Proceed" name="proceed" value="P"> I Have read the above mentioned payment
+                instruction
+                <br>
+                <button type="submit">PAY</button>
+                {% csrf_token %}
+            </form>
+        </div>
+        <script>
+            document.getElementById('form1').onsubmit = function () {
+                // get reference to required checkbox
+                var terms = this.elements['proceed'];
+                const el = document.createElement('textarea');
+                el.value = "THIAGARAJAR COLLEGE OF ENGINEERING TECHUTSAV 2022";
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+
+                if (!terms.checked) {
+                    $.alert({
+                        title: 'Alert!',
+                        content: 'Kindly read the conditions before proceeding to payment.',
+                    }); return false; // don't submit
+                }
+                return true; // submit
+            };
+        </script>
+    </div>
+</div>
+<br>
+
+
+{% endblock %}

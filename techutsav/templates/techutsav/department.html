@@ -1,0 +1,144 @@
+{% extends 'techutsav/base_data.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<section class="text-center">
+  <h1 style="font-weight: 700;">DEPARTMENTS</h1>
+  <div class="row wow fadeIn">
+
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card">
+        <div class="view overlay">
+          <img src="{% static 'img/depts/cse.jpg' %}" class="card-img-top" alt="" style="max-height: 500;">
+        </div>
+        <div class="card-body text-center" style="padding-bottom:0px !important;">
+          <h5 class="card-title"><strong>CSE</strong></h5>
+        </div>
+        <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+          <a href="/dept/cse/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <div class="view overlay">
+            <img src="{% static 'img/depts/civil.jpg' %}" class="card-img-top" alt="">
+          </div>
+          <div class="card-body text-center" style="padding-bottom:0px !important;">
+            <h5 class="card-title"><strong>CIVIL</strong></h5>
+          </div>
+          <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+            <a href="/dept/civil/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+          </div>
+        </div>
+    </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="view overlay">
+                <img src="{% static 'img/depts/mech.jpeg' %}" class="card-img-top" alt="">
+              </div>
+              <div class="card-body text-center" style="padding-bottom:0px !important;">
+                <h5 class="card-title"><strong>MECHANICAL</strong></h5>
+              </div>
+              <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+                <a href="/dept/mech/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+              </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="view overlay">
+                <img src="{% static 'img/depts/eee.png' %}" class="card-img-top" alt="">
+              </div>
+              <div class="card-body text-center" style="padding-bottom:0px !important;">
+                <h5 class="card-title"><strong>EEE</strong></h5>
+              </div>
+              <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+                <a href="/dept/eee/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="view overlay">
+                <img src="{% static 'img/depts/ece.jpg' %}" class="card-img-top" alt="">
+              </div>
+              <div class="card-body text-center" style="padding-bottom:0px !important;">
+                <h5 class="card-title"><strong>ECE</strong></h5>
+              </div>
+              <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+                <a href="/dept/ece/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="view overlay">
+                <img src="{% static 'img/depts/it.webp' %}" class="card-img-top" alt="">
+              </div>
+              <div class="card-body text-center" style="padding-bottom:0px !important;">
+                <h5 class="card-title"><strong>IT</strong></h5>
+              </div>
+              <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+                <a href="/dept/it/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="view overlay">
+                <img src="{% static 'img/depts/mect.jpg' %}" class="card-img-top" alt="">
+              </div>
+              <div class="card-body text-center" style="padding-bottom:0px !important;">
+                <h5 class="card-title"><strong>MECHATRONICS</strong></h5>
+              </div>
+              <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+                <a href="/dept/mechatronics/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="view overlay">
+                <img src="{% static 'img/depts/datascience.png' %}" class="card-img-top" alt="">
+              </div>
+              <div class="card-body text-center" style="padding-bottom:0px !important;">
+                <h5 class="card-title"><strong>DATA SCIENCE</strong></h5>
+              </div>
+              <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+                <a href="/dept/mca/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="view overlay">
+                <img src="{% static 'img/depts/arch.jpg' %}" class="card-img-top" alt="">
+              </div>
+              <div class="card-body text-center" style="padding-bottom:0px !important;">
+                <h5 class="card-title"><strong>ARCHITECTURE</strong></h5>
+              </div>
+              <div class="card-footer" style="padding-right: 2px !important;padding-left: 2px !important;">
+                <a href="/dept/arch/" class="btn-sm btn-success" style="font-size: 2rem;">View Events</a>
+              </div>
+            </div>
+        </div>
+
+
+    </div>
+
+  </div>
+
+
+
+</section>
+<br>
+{% endblock %}
