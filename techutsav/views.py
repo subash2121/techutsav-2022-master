@@ -227,7 +227,7 @@ def payment(request, pk, dept):
         if dept == 'robot':
             return redirect(reverse('index'))
         else:
-            return HttpResponseRedirect('https://eazypay.icicibank.com/homePage')
+            return HttpResponseRedirect('https://eazypay.icicibank.com/')
     else:
         return render(request, 'techutsav/instruction.html', {'MEDIA_URL': MEDIA_URL})
 
@@ -237,7 +237,7 @@ def payments(request):
     if request.method == 'POST':
         TcePay.objects.create(user_name=request.user,
                               event_dept='direct', event_id='direct',)
-        return HttpResponseRedirect('https://eazypay.icicibank.com/homePage')
+        return HttpResponseRedirect('https://eazypay.icicibank.com/')
     else:
         return render(request, 'techutsav/instruction.html', {'MEDIA_URL': MEDIA_URL})
 
@@ -332,6 +332,6 @@ def payments(request):
     if request.method == 'POST':
         TcePay.objects.create(user_name=request.user,
                               event_dept='direct', event_id='direct',)
-        return HttpResponseRedirect('https://eazypay.icicibank.com/homePage')
+        return HttpResponseRedirect('https://eazypay.icicibank.com/')
     else:
         return render(request, 'techutsav/instruction.html', {'MEDIA_URL': MEDIA_URL})
