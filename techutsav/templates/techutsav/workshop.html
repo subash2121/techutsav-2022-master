@@ -8,7 +8,7 @@
             <h1>{{x.event_name}}</h1>
             <div class="details-card">
                 <div class="details-item details-img">
-                    <img style="height:90%" src="{{MEDIA_URL}}{{x.thumbnail_front}}" alt="Event">
+                    <img style="height:90%" src="{{x.thumbnail_front.url}}" alt="Event">
                 </div>
                 <div class="details-item details-category">
                     <h5>Details</h5>
@@ -113,7 +113,7 @@
                 <div eventNo="{{x.eid}}" data-wow-duration="1s" class="event wow fadeInDown">
                     <div class="card card-aa">
                         <div class="card-item card-front card-ss">
-                            <img src="{{MEDIA_URL}}{{x.thumbnail_front}}" alt="{{x.event_name}}">
+                            <img src="{{x.thumbnail_front.url}}" alt="{{x.event_name}}">
                             <div class="headText" >
                                 
                                 <p >{{x.event_name}}</p>
@@ -123,7 +123,7 @@
 
                         {% if x.thumbnail_back %}
                         <div class="card-item card-back">
-                            <img src="{{MEDIA_URL}}{{x.thumbnail_back}}" alt="{{x.event_name}}">
+                            <img src="{{x.thumbnail_back.url}}" alt="{{x.event_name}}">
                             {% if x.event_more %}
                             <div class="eventName">
                                 <p>{{x.event_more}}</p>
@@ -135,7 +135,7 @@
                         </div>
                         {%else%}
                         <div class="card-item card-back">
-                            <img src="{{MEDIA_URL}}{{x.thumbnail_front}}" alt="{{x.event_name}}">
+                            <img src="{{x.thumbnail_front.url}}" alt="{{x.event_name}}">
                             {% if x.event_more %}
                             <div class="eventName">
                                 <p>{{x.event_more}}</p>

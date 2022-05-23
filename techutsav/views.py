@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-from backend.settings import MEDIA_URL, BASE_DIR
+from backend.settings import MEDIA_URL, BASE_DIR,STATIC_URL
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 import pyrebase
@@ -123,7 +123,7 @@ get_dep = {
     'ece': 'DEPARTMENT OF ELECTRONICS AND COMMUNICATION ENGINEERING',
     'cse': 'DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING',
     'it': 'DEPARTMENT OF INFORMATION TECHNOLOGY',
-    'mca': 'MASTER OF COMPUTER APPLICATION and DATA SCIENCE',
+    'mca': 'APPLIED MATHEMATICS AND COMPUTATIONAL SCIENCE',
     'arch': 'DEPARTMENT OF ARCHITECTURE',
     'robot': 'ROBOTICS CLUB',
     'test': 'DEPARTMENT OF TEST ENGINEERING',
@@ -196,7 +196,7 @@ def dept(request, dept):
             iswork = True
         else:
             iswork = False
-        return render(request, 'techutsav/dept.html', {'full': get_dep[dept], 'isworksop': iswork, 'short': dept, 'data': data, 'events': event, 'workshops': workshop, 'MEDIA_URL': MEDIA_URL})
+        return render(request, 'techutsav/dept.html', {'full': get_dep[dept], 'isworksop': iswork, 'short': dept, 'data': data, 'events': event, 'workshops': workshop, 'MEDIA_URL': STATIC_URL})
 
 def workshop(request):
     if request.method == 'GET':

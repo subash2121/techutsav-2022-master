@@ -34,6 +34,7 @@ class Project(models.Model):
 class Workshop(models.Model):
     eid=models.AutoField(primary_key=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -46,8 +47,7 @@ class Workshop(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='workshops/', null=True, blank=True)
+    thumbnail_front = models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='workshops/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -60,6 +60,7 @@ class Department(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -71,8 +72,7 @@ class Department(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -87,6 +87,7 @@ class CSE(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -99,8 +100,7 @@ class CSE(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -115,6 +115,7 @@ class CIVIL(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -127,8 +128,7 @@ class CIVIL(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -143,6 +143,7 @@ class IT(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -155,8 +156,7 @@ class IT(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -171,6 +171,7 @@ class ECE(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -183,8 +184,7 @@ class ECE(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -199,6 +199,7 @@ class EEE(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -211,8 +212,7 @@ class EEE(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -227,6 +227,7 @@ class ME(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -239,8 +240,7 @@ class ME(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -255,6 +255,7 @@ class MA(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -267,8 +268,7 @@ class MA(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -283,6 +283,7 @@ class ARCH(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -295,8 +296,7 @@ class ARCH(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -311,6 +311,7 @@ class MCA(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -323,8 +324,7 @@ class MCA(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -339,6 +339,7 @@ class TEST(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -351,8 +352,7 @@ class TEST(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -367,6 +367,7 @@ class ROBOT(models.Model):
     type_of_event = models.CharField(
         max_length=30, choices=event_choices, null=True, blank=True)
     event_name = models.CharField(max_length=60, null=True, blank=True)
+    is_prize=models.BooleanField(default=True)
     event_more = models.CharField(max_length=60, null=True, blank=True)
     event_max_participants = models.CharField(
         max_length=60, null=True, blank=True, default="Not Mentioned")
@@ -379,8 +380,7 @@ class ROBOT(models.Model):
     event_timing = models.CharField(
         max_length=100, null=True, blank=True, default="Soon")
 
-    thumbnail_front = models.FileField(
-        upload_to='events/', null=True, blank=True)
+    thumbnail_front =models.URLField(blank=True, null=True)
     thumbnail_back = models.FileField(
         upload_to='events/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
