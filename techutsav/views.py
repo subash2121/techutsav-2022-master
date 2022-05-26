@@ -258,7 +258,7 @@ def addNewReport(request):
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
         # print(os.path.join(os.path.join(BASE_DIR, 'media'), filename))
-        f = open(os.path.join(os.path.join(BASE_DIR, 'media'), filename))
+        f = open(os.path.join(os.path.join(BASE_DIR, 'media'), filename), encoding='utf-8')
         
         f.readline()
         data = f.readlines()
