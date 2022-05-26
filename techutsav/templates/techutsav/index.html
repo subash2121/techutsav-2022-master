@@ -206,6 +206,53 @@ background: linear-gradient(90deg, rgba(42,83,197,1) 0%, rgba(225,151,186,1) 100
     
 
 }
+* {
+
+  list-style: none;
+}
+
+body {
+  
+  font-family: helvetica;
+}
+
+h5 {
+  color: #333;
+  margin-top: 50px;
+
+}
+
+.cssmarquee {
+height: 50px;
+overflow: hidden;
+position: relative;
+/* margin-top: 10px !important; */
+padding-top: 5px !important;
+background-color: #fefacb;
+
+}
+.cssmarquee h5 {
+position: absolute;
+width: 100%;
+height: 100%;
+color: turquoise;
+margin: 0;
+line-height: 50px;
+text-align: center;
+/* Starting position */
+transform:translateX(-100%);
+animation: cssmarquee 13s linear infinite;
+
+}
+@keyframes cssmarquee {
+0% {
+transform: translateX(100%);
+}
+100% {
+transform: translateX(-100%);
+}
+}
+</style>
   </style>
 
 </head>
@@ -315,8 +362,10 @@ background: linear-gradient(90deg, rgba(42,83,197,1) 0%, rgba(225,151,186,1) 100
       <p id="clock"></p>
     </div>
   </section> --> 
-
-  
+<br><br><br>
+  <div class="cssmarquee">
+    <h5 style="color: red; font-weight: 600;">OFFLINE REGISTRATION AND CASH PAYMENT IS ALSO ACCEPTABLE ... WE HEARTLY WELCOME YOU TO TECHUTSAV @ TCE</h5>
+    </div>
   <div class="hero-wrap js-fullheight" id="img" style="background-image: url(' {% static 'img/cover_mobile.png' %} ') " data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container" id="bg-cont" style="height: 100vh; ">
@@ -330,6 +379,7 @@ background: linear-gradient(90deg, rgba(42,83,197,1) 0%, rgba(225,151,186,1) 100
     </div>
 
   </div>
+  
   <main id="main">
 
 

@@ -48,11 +48,11 @@ class DashboardPaymentSerializer(serializers.ModelSerializer):
     def get_reg_for(self, instance):
         if instance.base_amount:
             bal = instance.base_amount
-            if bal == '250':
+            if instance.event == '300':
                 return "Event"
-            elif bal == '300':
+            elif instance.workshop == '300':
                 return "Workshop"
-            elif bal == '550':
+            elif bal == '500':
                 return "Both Event and Workshop"
             else:
                 return None
@@ -98,11 +98,13 @@ class DashboardUserSerializer(serializers.ModelSerializer):
         if Payment.objects.filter(email=User.objects.filter(username=instance.user_name)[0].email).exists():
             bal = Payment.objects.filter(
                 email=User.objects.filter(username=instance.user_name)[0].email)[0].base_amount
-            if bal == '250':
+            b=Payment.objects.filter(
+                email=User.objects.filter(username=instance.user_name)[0].email)[0]
+            if b.event == '300':
                 return "Event"
-            elif bal == '300':
+            elif b.workshop == '300':
                 return "Workshop"
-            elif bal == '550':
+            elif bal == '500':
                 return "Both Event and Workshop"
             else:
                 return None

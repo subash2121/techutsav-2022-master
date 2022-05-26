@@ -259,51 +259,50 @@ def addNewReport(request):
         uploaded_file_url = fs.url(filename)
         # print(os.path.join(os.path.join(BASE_DIR, 'media'), filename))
         f = open(os.path.join(os.path.join(BASE_DIR, 'media'), filename))
+        
         f.readline()
         data = f.readlines()
         for x in data:
-            temp = x.strip().split('|')
+            temp = x.strip().split(',')
             Payment.objects.create(
                 icid=temp[0],
                 name=temp[1],
                 ph_number=temp[2],
                 email=temp[3],
                 roll=temp[4],
-                college=temp[5],
-                dept=temp[6],
-                org_dept=temp[7],
-                event=temp[8],
-                workshop=temp[9],
-                both=temp[10],
+                org_dept=temp[5],
+                college=temp[6],
+                event=temp[7],
+                workshop=temp[8],
+                both=temp[9],
                 txnid=temp[11],
                 tnxdate=temp[12],
                 mode_of_payment=temp[13],
                 status=temp[14],
                 base_amount=temp[15],
                 process_fee=temp[16],
-                recon_date=temp[17],
-                settle_date=temp[18],
-                txn_amt=temp[19],
-                txn_initated_on=temp[20],
-                late_fee=temp[21],
-                early_fee=temp[22],
-                cgst=temp[23],
-                sgst=temp[24],
-                igst=temp[25],
-                jkgst=temp[26],
-                utgst=temp[27],
-                ctcess=temp[28],
-                stcess=temp[29],
-                payer_processing_fee=temp[30],
-                payer_cgst=temp[31],
-                payer_sgst=temp[32],
-                payer_igst=temp[33],
-                payer_jkgst=temp[34],
-                payer_utgst=temp[35],
-                payer_ctcess=temp[36],
-                payer_stcess=temp[37],
+                recon_date=temp[18],
+                settle_date=temp[19],
+                txn_amt=temp[20],
+                txn_initated_on=temp[21],
+                late_fee=temp[22],
+                early_fee=temp[23],
+                payer_cgst=temp[24],
+                payer_sgst=temp[25],
+                payer_igst=temp[26],
+                payer_jkgst=temp[27],
+                payer_utgst=temp[28],
+                payer_ctcess=temp[29],
+                payer_stcess=temp[30],
+                cgst=temp[31],
+                sgst=temp[32],
+                igst=temp[33],
+                jkgst=temp[34],
+                utgst=temp[35],
+                ctcess=temp[36],
+                stcess=temp[37],
             )
-            # print(temp)
+            #print(temp)
         return redirect(reverse('index'))
     return render(request, 'techutsav/upload.html')
 
@@ -313,13 +312,17 @@ def report(request, type_report):
         if (type_report == 'chart'):
             if str(request.user) == 'admin-dean' or request.user.is_superuser:
                 res = [['Department', 'Events', 'Workshop', 'both'], ]
-                for x in ['Mechanical', 'Mechtronics', 'Civil', 'EEE', 'ECE', 'CSE', 'IT', 'MCA', 'Arch']:
+                for x in ['MECHANICAL', 'MECHATRONICS', 'CIVIL', 'EEE', 'ECE', 'CSE', 'IT', 'MCA AND DATA SCIENCE', 'ARCHITECTURE']:
                     data = [x, ]
-                    for y in ['300', '550']:
-                        data.append(Payment.objects.filter(
-                            org_dept=x, base_amount=y).count())
+                    
+                    data.append(Payment.objects.filter(
+                            org_dept=x, event=300).count())
+                    data.append(Payment.objects.filter(
+                            org_dept=x, workshop=300).count())
+                    data.append(Payment.objects.filter(
+                            org_dept=x, both=500).count())
                     res.append(data)
-                # print(res)
+                print(res)
                 return render(request, 'techutsav/chart.html', {'data': res})
         elif type_report == 'payment':
             return render(request, 'techutsav/report.html', {'url': '/dashboard/payment/', "data1": "ph_number", "data2": "org_dept", "report": "Paid User"})
