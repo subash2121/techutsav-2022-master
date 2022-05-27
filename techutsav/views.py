@@ -335,6 +335,6 @@ def payments(request):
     if request.method == 'POST':
         TcePay.objects.create(user_name=request.user,
                               event_dept='direct', event_id='direct',)
-        return HttpResponseRedirect('https://eazypay.icicibank.com/')
+        return HttpResponseRedirect('https://techutsav.tce.edu/static/img/closed.png')
     else:
         return render(request, 'techutsav/instruction.html', {'MEDIA_URL': MEDIA_URL})
